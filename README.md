@@ -63,7 +63,6 @@ UniVerse is a comprehensive AI-powered campus platform designed to unify academi
 - **Communication:** Twilio, SMS, Email, Push Notifications, Alerts  
 
 ---
-
 ## 📂 Directory Structure
 
 ```bash
@@ -97,16 +96,3 @@ UniVerse/
 │   ├── package.json
 │   └── vite.config.ts
 └── README.md
-## ⚙️ Installation & Setup
-
-### Backend
-```bash
-cd backend
-npm install
-npm run dev
-
-### Frontend
-```bash
-cd backend
-npm install
-npm run dev
