@@ -97,3 +97,16 @@ UniVerse/
 │   ├── package.json
 │   └── vite.config.ts
 └── README.md
+## ⚙️ Installation & Setup
+
+### Backend
+```bash
+cd backend
+npm install
+npm run dev
+
+### Frontend
+```bash
+cd backend
+npm install
+npm run dev
