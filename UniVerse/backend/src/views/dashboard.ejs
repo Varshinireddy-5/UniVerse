@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head', { title: 'Admin Dashboard' }) %>
+<body class="min-h-screen bg-gradient-to-br from-sky-100 via-blue-50 to-cyan-100">
+  <%- include('partials/nav') %>
+  <main class="max-w-6xl mx-auto p-6">
+    <div class="bg-white/90 rounded-2xl border border-cyan-200 overflow-hidden mb-6">
+      <div class="px-6 py-4 border-b border-cyan-200 flex items-center justify-between">
+        <p class="text-cyan-700 text-lg font-semibold">Dashboard</p>
+        <form method="get" action="/admin/dashboard" class="flex items-center gap-2">
+          <label class="text-sm text-gray-600">Role</label>
+          <select name="role" class="px-3 py-2 rounded-xl bg-white border border-cyan-200 text-gray-800 focus:outline-none focus:border-cyan-400">
+            <option value="ALL" <%= (role === 'ALL') ? 'selected' : '' %>>All</option>
+            <option value="ADMIN" <%= (role === 'ADMIN') ? 'selected' : '' %>>Admin</option>
+            <option value="STUDENT" <%= (role === 'STUDENT') ? 'selected' : '' %>>Student</option>
+            <option value="FACULTY" <%= (role === 'FACULTY') ? 'selected' : '' %>>Faculty</option>
+            <option value="SEATING_MANAGER" <%= (role === 'SEATING_MANAGER') ? 'selected' : '' %>>Seating Manager</option>
+            <option value="CLUB_COORDINATOR" <%= (role === 'CLUB_COORDINATOR') ? 'selected' : '' %>>Club Coordinator</option>
+          </select>
+          <button type="submit" class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-500 text-white">Apply</button>
+        </form>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-cyan-200">
+        <p class="text-gray-700 text-sm">Users (<%= role || 'ALL' %>)</p>
+        <p class="text-3xl font-bold text-gray-800"><%= counts.users %></p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-cyan-200">
+        <p class="text-gray-700 text-sm">Courses</p>
+        <p class="text-3xl font-bold text-gray-800"><%= counts.courses %></p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-cyan-200">
+        <p class="text-gray-700 text-sm">Exams</p>
+        <p class="text-3xl font-bold text-gray-800"><%= counts.exams %></p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-cyan-200">
+        <p class="text-gray-700 text-sm">Rooms</p>
+        <p class="text-3xl font-bold text-gray-800"><%= counts.rooms %></p>
+      </div>
+    </div>
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <a href="/admin/users" class="block bg-white/90 border border-cyan-200 rounded-2xl p-6 text-gray-800 hover:bg-white">Manage Users</a>
+      <a href="/admin/courses" class="block bg-white/90 border border-cyan-200 rounded-2xl p-6 text-gray-800 hover:bg-white">Browse Courses</a>
+      <a href="/admin/exams" class="block bg-white/90 border border-cyan-200 rounded-2xl p-6 text-gray-800 hover:bg-white">View Exams</a>
+      <a href="/admin/rooms" class="block bg-white/90 border border-cyan-200 rounded-2xl p-6 text-gray-800 hover:bg-white">Manage Rooms</a>
+    </div>
+  </main>
+</body>
+</html>
